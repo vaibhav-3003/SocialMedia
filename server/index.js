@@ -10,7 +10,10 @@ import { fileURLToPath } from 'url';
 
 import authRoutes from './routes/auth.js';
 import userRoutes from './routes/user.js';
+import postRoutes from './routes/posts.js';
 import { register } from './controllers/auth.js';
+import { createPost } from './controllers/posts.js';
+import { verifyToken } from './middleware/auth.js';
 
 
 dotenv.config();
@@ -49,6 +52,7 @@ app.get("/",(req,res)=>{
 
 //register route
 app.post("/auth/register",upload.single("picture"),register);
+app.post("/posts",verifyToken,upload.single("picture"), createPost);
 
 // ROUTES
 
@@ -57,6 +61,9 @@ app.use("/auth", authRoutes);
 
 //user routes
 app.use('/user',userRoutes);
+
+//post routes
+app.use('/posts',postRoutes);
 
 
 // MONGOOSE SETUP
