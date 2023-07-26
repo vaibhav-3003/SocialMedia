@@ -8,7 +8,10 @@ import morgan from 'morgan';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
+import authRoutes from './routes/auth.js';
+import userRoutes from './routes/user.js';
 import { register } from './controllers/auth.js';
+
 
 dotenv.config();
 
@@ -44,8 +47,16 @@ app.get("/",(req,res)=>{
   res.status(201).json({message: "Social Media"});
 })
 
-
+//register route
 app.post("/auth/register",upload.single("picture"),register);
+
+// ROUTES
+
+//authentication routes
+app.use("/auth", authRoutes);
+
+//user routes
+app.use('/user',userRoutes);
 
 
 // MONGOOSE SETUP
