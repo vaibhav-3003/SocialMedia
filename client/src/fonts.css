@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url(./font/Gilroy-Light\ 300.ttf);
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url(./font/Gilroy-ExtraBold\ 800.ttf);
+}
